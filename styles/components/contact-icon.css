@@ -1,0 +1,23 @@
+.icon {
+  filter: brightness(0) invert(1);
+  width: 18px;
+  height: 18px;
+}
+
+.details-footer-container {
+  display: flex;
+
+  max-width: fit-content;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: medium;
+
+  font-family: "Cormorant Garamond", serif;
+  color: whitesmoke;
+}
+
+.details-footer-container > span {
+  margin-left: 10px;
+}

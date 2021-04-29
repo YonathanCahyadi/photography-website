@@ -34,11 +34,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 function Home({ data }) {
   return (
     <div id="home-page">
-      <div id="welcome-segment">
+      <div id="welcome-segment" className="segment">
         <div className="quotes">Capture the Moments</div>
       </div>
 
-      <div id="introduction-segment">
+      <div id="introduction-segment" className="segment">
         <SubHeading title="A little bit about us" />
         <div className="segment-content">
           <div>
@@ -57,7 +57,7 @@ function Home({ data }) {
         </div>
       </div>
 
-      <div id="featured-segment">
+      <div id="featured-segment" className="segment">
         <SubHeading title="Featured works" />
         <div className="images-showcase">
           {data.length !== 0 ? (

@@ -2,4 +2,34 @@ footer {
   background-color: black;
   color: whitesmoke;
   height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  padding: 25px;
+}
+
+.vertical-divider {
+  border-right: 1px solid whitesmoke;
+  height: 60px;
+}
+
+.contacts-footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.map-container,
+.contacts-footer-container {
+  width: 400px;
+  height: 200px;
+}
+
+@media screen and (max-width: 1000px) {
+  .vertical-divider {
+    display: none;
+  }
 }

@@ -16,6 +16,10 @@
   color: whitesmoke;
 }
 
+.segment {
+  padding: 25px;
+}
+
 #welcome-segment {
   background: url("../../public/home-bg-img.jpg");
   background-position: center;
