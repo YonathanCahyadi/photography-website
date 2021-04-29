@@ -1,0 +1,41 @@
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  padding: 15px;
+  background-color: whitesmoke;
+}
+
+h1 {
+  font-family: "Dancing Script", cursive;
+}
+
+h1:hover {
+  cursor: pointer;
+}
+
+li {
+  display: inline;
+  margin: 15px;
+}
+
+a {
+  color: rgb(94, 94, 94);
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
+
+button {
+  padding: 8px;
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+}
+
+button:hover {
+  background-color: grey;
+  cursor: pointer;
+}

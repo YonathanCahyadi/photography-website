@@ -1,0 +1,17 @@
+.heading-2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 35px;
+}
+
+.sub-title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divider {
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+  width: 60px;
+}
