@@ -1,16 +1,22 @@
 import { GetServerSideProps } from "next";
+import ImageCard from "../components/ImageCard";
 import SubHeading from "../components/SubHeading";
 import queryUnplash from "../libs/query";
+import { UnplashFormattedData } from "../types/UnsplashFormattedData";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  let formattedData = [];
+  let formattedData: UnplashFormattedData[] = [];
 
   try {
-    const res = await queryUnplash("/photos/random", {
-      query: "nature",
-      content_filter: "high",
-      count: 12
-    });
+    const res = await queryUnplash(
+      "/photos/random",
+      {
+        query: "nature",
+        content_filter: "low",
+        count: 12
+      },
+      1000
+    );
 
     // format the data
     formattedData = res.data.map((photo) => ({
@@ -21,7 +27,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
       url: photo.links.html
     }));
   } catch (err) {
-    console.log(`${err.response.status} --- ${err.response.statusText}`);
+    if (err.response) {
+      console.log(`${err.response.status} --- ${err.response.statusText}`);
+    } else {
+      console.log("Query is too long, canceled.");
+    }
   }
 
   return {
@@ -31,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-function Home({ data }) {
+function Home({ data }: { data: UnplashFormattedData[] }) {
   return (
     <div id="home-page">
       <div id="welcome-segment" className="segment">
@@ -61,11 +71,7 @@ function Home({ data }) {
         <SubHeading title="Featured works" />
         <div className="images-showcase">
           {data.length !== 0 ? (
-            data.map((photo) => (
-              <div onClick={() => window.open(photo.url)} className="image-showcase" key={photo.id}>
-                <img src={photo.links} alt={photo.alt} />
-              </div>
-            ))
+            data.map((photo) => <ImageCard key={photo.id} externalUrl={photo.url} imgLinks={photo.links} imgAlt={photo.alt} />)
           ) : (
             <div>Sorry, no images to showcase.</div>
           )}
