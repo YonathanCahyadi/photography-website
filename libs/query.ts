@@ -1,8 +1,8 @@
 import axios from "axios";
 
-async function queryUnplash(endpoint, params = {}) {
+async function queryUnplash(endpoint, params = {}, timeoutMs = 0) {
   const baseUrl = "https://api.unsplash.com/";
-  const accessKey = "GzXxeoxysLhWqbV4nui5RpVHZt4zP4-SnemZllT7PBA";
+  const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY;
 
   const urlWithEndpoint = new URL(endpoint, baseUrl);
 
@@ -14,7 +14,8 @@ async function queryUnplash(endpoint, params = {}) {
     headers: {
       "Accept-Version": "v1",
       Authorization: `Client-ID ${accessKey}`
-    }
+    },
+    timeout: timeoutMs
   });
 }
 

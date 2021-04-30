@@ -3,7 +3,7 @@ type GoogleMapProps = {
 };
 
 function GoogleMap({ location }: GoogleMapProps) {
-  const MAP_API_KEY = "AIzaSyApfSFFWpkZQyyBQCplERm88Oo8MPFjLVI";
+  const MAP_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY;
   return (
     <iframe
       width="100%"

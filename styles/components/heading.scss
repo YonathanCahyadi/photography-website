@@ -1,0 +1,23 @@
+.heading {
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px 25px;
+
+  height: 150px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.heading > h1 {
+  color: whitesmoke;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 55px;
+
+  &:hover {
+    cursor: text;
+  }
+}

@@ -2,13 +2,16 @@ import Head from "next/head";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import "../styles/globals.css";
-import "../styles/components/navbar.css";
-import "../styles/components/footer.css";
-import "../styles/components/sub-heading.css";
-import "../styles/components/contact-icon.css";
+import "../styles/globals.scss";
+import "../styles/components/navbar.scss";
+import "../styles/components/footer.scss";
+import "../styles/components/heading.scss";
+import "../styles/components/sub-heading.scss";
+import "../styles/components/contact-icon.scss";
+import "../styles/components/image-card.scss";
 
-import "../styles/pages/home.css";
+import "../styles/pages/home.scss";
+import "../styles/pages/galleries.scss";
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -16,10 +16,6 @@
   color: whitesmoke;
 }
 
-.segment {
-  padding: 25px;
-}
-
 #welcome-segment {
   background: url("../../public/home-bg-img.jpg");
   background-position: center;
@@ -58,31 +54,4 @@
 #featured-segment {
   margin: 50px 0px 0px 0px;
   min-height: 500px;
-}
-
-.images-showcase {
-  padding: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.image-showcase {
-  max-width: 15%;
-  max-height: 250px;
-  margin: 5px;
-}
-
-.image-showcase > img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.image-showcase:hover {
-  cursor: pointer;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  transition: 0.5s ease-in-out;
 }
