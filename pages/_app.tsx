@@ -12,6 +12,7 @@ import "../styles/components/image-card.scss";
 
 import "../styles/pages/home.scss";
 import "../styles/pages/galleries.scss";
+import "../styles/pages/contacts.scss";
 
 function MyApp({ Component, pageProps }) {
   return (

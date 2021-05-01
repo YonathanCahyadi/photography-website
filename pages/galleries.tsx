@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
       {
         count: 30
       },
-      1000
+      2000
     );
 
     formattedData = res.data.map((photo) => ({
@@ -48,16 +48,19 @@ function Galleries({ data }: { data: UnplashFormattedData[] }) {
   const [currentObjKey, setCurrentObjKey] = useState(`random-${1}`);
 
   const Search = async (e = null) => {
-    const newObjKey = `${query}-${pageNum}`;
+    const formattedQuery = query.trim().toLocaleLowerCase();
+    const newQuery = formattedQuery.length === 0 ? "random" : formattedQuery;
+    const newObjKey = `${newQuery}-${pageNum}`;
 
     setCurrentObjKey(newObjKey);
+
     // don't search if data already stored in the state
     if (newObjKey in imgData) return;
 
-    // search the query on the unspalsh api
+    // search the query on the unspalsh api and store the result on the state
     try {
       const res = await queryUnplash("/search/photos", {
-        query: query,
+        query: newQuery,
         page: pageNum,
         per_page: 30,
         content_filter: "low"
@@ -113,12 +116,12 @@ function Galleries({ data }: { data: UnplashFormattedData[] }) {
     <div id="galleries-page">
       <Heading backgroundUrl="galleries-bg-img.jpg" text="Galleries" />
       <div id="galleries-segment" className="segment">
-        <div className="galleries-actions">
-          <input type="text" placeholder="Search" value={query} onChange={(e) => setQuery(e.target.value)} />
-          <button id="search-btn" onClick={(e) => Search(e)}>
+        <form className="galleries-actions">
+          <input type="text" placeholder="Enter your Query" value={query} onChange={(e) => setQuery(e.target.value)} />
+          <button type="button" id="search-btn" onClick={(e) => Search(e)}>
             Search
           </button>
-        </div>
+        </form>
 
         <div id="galleries-img">{DisplayImages()}</div>
 

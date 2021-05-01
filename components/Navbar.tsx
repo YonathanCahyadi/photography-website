@@ -17,9 +17,6 @@ function Navbar({ logo }: NavbarProps) {
         <li>
           <Link href="/galleries">Galleries</Link>
         </li>
-        <li>
-          <Link href="/faq">FAQ</Link>
-        </li>
       </ul>
       <Link href="/contacts">
         <button>Contact Us</button>
