@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import ImageCard from "../components/ImageCard";
 import SubHeading from "../components/SubHeading";
+import formatUnsplashData from "../libs/formatUnsplashData";
 import queryUnplash from "../libs/query";
 import { UnplashFormattedData } from "../types/UnsplashFormattedData";
 
@@ -19,13 +20,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     );
 
     // format the data
-    formattedData = res.data.map((photo) => ({
-      id: photo.id,
-      links: photo.urls.small,
-      createdAt: photo.created_at,
-      alt: photo.alt_description,
-      url: photo.links.html
-    }));
+    formattedData = res.data.map((photo) => formatUnsplashData(photo));
   } catch (err) {
     if (err.response) {
       console.log(`${err.response.status} --- ${err.response.statusText}`);
@@ -71,7 +66,16 @@ function Home({ data }: { data: UnplashFormattedData[] }) {
         <SubHeading title="Featured works" />
         <div className="images-showcase">
           {data.length !== 0 ? (
-            data.map((photo) => <ImageCard key={photo.id} externalUrl={photo.url} imgLinks={photo.links} imgAlt={photo.alt} />)
+            data.map((photo) => (
+              <ImageCard
+                key={photo.id}
+                externalUrl={photo.url}
+                user={photo.user}
+                userLink={photo.userLink}
+                imgLinks={photo.links}
+                imgAlt={photo.alt}
+              />
+            ))
           ) : (
             <div>Sorry, no images to showcase.</div>
           )}

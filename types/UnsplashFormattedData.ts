@@ -4,4 +4,6 @@ export type UnplashFormattedData = {
   createdAt: string;
   alt: string;
   url: string;
+  user: string;
+  userLink: string;
 };
