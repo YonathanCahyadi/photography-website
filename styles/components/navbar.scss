@@ -7,11 +7,11 @@ nav {
   background-color: whitesmoke;
 }
 
-h1 {
+#logo {
   font-family: "Dancing Script", cursive;
 }
 
-h1:hover {
+#logo:hover {
   cursor: pointer;
 }
 
@@ -38,4 +38,10 @@ button {
 button:hover {
   background-color: grey;
   cursor: pointer;
+}
+
+@media screen and (max-width: 321px) {
+  #logo {
+    display: none;
+  }
 }

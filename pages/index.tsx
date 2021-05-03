@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         content_filter: "low",
         count: 12
       },
-      1000
+      2000
     );
 
     // format the data

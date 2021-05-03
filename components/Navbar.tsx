@@ -8,7 +8,7 @@ function Navbar({ logo }: NavbarProps) {
   return (
     <nav>
       <Link href="/">
-        <h1>{logo}</h1>
+        <h1 id="logo">{logo}</h1>
       </Link>
       <ul>
         <li>

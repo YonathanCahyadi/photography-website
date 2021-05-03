@@ -2,14 +2,15 @@ type ContactIconProps = {
   imgLocation: string;
   link?: string;
   name?: string;
+  imgAlt: string;
 };
 
-function ConctactIcon({ imgLocation, link, name }: ContactIconProps) {
+function ConctactIcon({ imgLocation, link, name, imgAlt }: ContactIconProps) {
   if (link) {
     return (
       <a href={link}>
         <div className="details-footer-container">
-          <img className="icon" src={imgLocation} />
+          <img className="icon" src={imgLocation} alt={imgAlt} />
           {name && <span>{name}</span>}
         </div>
       </a>
@@ -18,7 +19,7 @@ function ConctactIcon({ imgLocation, link, name }: ContactIconProps) {
 
   return (
     <div className="details-footer-container">
-      <img className="icon" src={imgLocation} />
+      <img className="icon" src={imgLocation} alt={imgAlt} />
       {name && <span>{name}</span>}
     </div>
   );

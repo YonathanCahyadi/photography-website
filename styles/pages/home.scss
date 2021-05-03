@@ -62,3 +62,25 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+@media screen and (max-width: 426px) {
+  .segment-content {
+    flex-direction: column;
+    margin: 0px 0px 0px 0px;
+    & > div {
+      margin: 35px 0px 0px 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .quotes {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 321px) {
+  .quotes {
+    font-size: 30px;
+  }
+}
